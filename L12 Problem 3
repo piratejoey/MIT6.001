@@ -7,7 +7,7 @@ class Hand(object):
 
         n: integer, the size of the hand.
         '''
-        assert type(n) == int
+        #assert type(n) == int
         self.HAND_SIZE = n
         self.VOWELS = 'aeiou'
         self.CONSONANTS = 'bcdfghjklmnpqrstvwxyz'
@@ -23,7 +23,7 @@ class Hand(object):
         self.hand = {}
 
         # Build the hand
-        numVowels = self.HAND_SIZE / 3
+        numVowels = self.HAND_SIZE // 3
     
         for i in range(numVowels):
             x = self.VOWELS[random.randrange(0,len(self.VOWELS))]
@@ -64,7 +64,7 @@ class Hand(object):
         '''
         output = ''
         hand_keys = self.hand.keys()
-        hand_keys.sort()
+        sorted(hand_keys)
         for letter in hand_keys:
             for j in range(self.hand[letter]):
                 output += letter
@@ -86,39 +86,28 @@ class Hand(object):
         """
         
         
-        
-        
         #your code here
         for letter in word:
             if letter not in self.hand.keys():
                 return False
         
-        copy = self.hand
+        copy = self.Hand
         for key in word:
             if copy[key] not in copy:
                 copy[key] -= 1
                 
-        print copy
+        print(copy)
         self.hand = copy
         
         return True
                 
-
-                
-
-            
-    
-            
-
-
-
-    
+        
 myHand = Hand(7)
-print myHand
-print myHand.calculateLen()
+print(myHand)
+print(myHand.calculateLen())
 
 myHand.setDummyHand('aazzmsp')
-print myHand
-print myHand.calculateLen()
-print myHand.update('azb')
-print myHand
+print(myHand)
+print(myHand.calculateLen())
+print(myHand.update('azb'))
+print(myHand)
