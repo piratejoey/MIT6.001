@@ -2,19 +2,17 @@ import math
 def sq(x):
     return x*x
 
-
 class Coordinate(object):
-	def __init__(self, x, y):
-		self.x = x
-		self.y = y
-	def distance(self, other):
-		return math.sqrt(sq(self.x - other.x)
-					+sq(self.y - other.y))
-					
-origin = Coordinate(0,0)
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    def distance(self, other):
+        return math.sqrt(sq(self.x - other.x)+sq(self.y - other.y))
+    def get_input():
+        origin = Coordinate(0,0)
+        first = int(input("First Coordinate: "))
+        second = int(input("Second Coordinate: "))
+        c = Coordinate(first, second)
+        print("Distance = " +str(origin.distance(c)))
 
-first = int(raw_input("First Coordinate: "))
-second = int(raw_input("Second Coordinate: "))
-c = Coordinate(first, second)
-
-print "Distance = " +str(origin.distance(c))
+Coordinate.get_input()
