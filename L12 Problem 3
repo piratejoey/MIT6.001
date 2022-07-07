@@ -85,8 +85,6 @@ class Hand(object):
         returns: Boolean (if the word was or was not made)
         """
         
-        
-        #your code here
         for letter in word:
             if letter not in self.hand.keys():
                 return False
